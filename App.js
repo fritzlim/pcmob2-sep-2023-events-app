@@ -20,6 +20,14 @@ function SettingsScreen() {
   );
 }
 
+function ContactScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text>Contact!</Text>
+    </View>
+  );
+}
+
 const Tab = createBottomTabNavigator();
 
 export default function App() {
@@ -33,19 +41,22 @@ export default function App() {
             //Set the icon based on which route it is (name of the tab)
             if (route.name === "Home") {
               iconName = "home";
-            } else if (route.name === "Events") {
+            } else if (route.name === "Settings") {
               iconName = "list";
+            } else if (route.name === "Contact") {
+              iconName = "user";
             }
 
             // You can return any component that you like here!
             return <FontAwesome name={iconName} size={size} color={color} />;
           },
-          tabBarActiveTintColor: "tomato",
+          tabBarActiveTintColor: "blue",
           tabBarInactiveTintColor: "gray",
         })}
       >
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Settings" component={SettingsScreen} />
+        <Tab.Screen name="Contact" component={ContactScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
